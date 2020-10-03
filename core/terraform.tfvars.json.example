@@ -1,6 +1,6 @@
 {
   "aws_access_key":              "AKzzFAKEzzzzzZZZZFHA",
-  "aws_secret_key":              "QSzzFAKEzzzzzZZZZd3+dfsJKLSDFj4htjhesjsd",
+  "aws_secret_key":              "QSzzFcAKEzzzzzZZZZd3+dfsJKLSDFj4htjhesjsd",
   "aws_region":                  "us-east-1",
   "aws_dynamodb_terraform_lock": "dtfh-minecraft-terraform-dynamodb",
   "aws_s3_terraform_plan":       "dtfh-minecraft-terraform-plan",

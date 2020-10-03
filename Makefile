@@ -17,7 +17,7 @@ spigot:
 	cd spigot-build && curl -OL 'https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar'
 	cd spigot-build && java -jar BuildTools.jar
 	cp spigot-build/spigot*jar spigot-bin/
-	cd spigot-bin && aws s3 sync . s3://$(shell cat core/terraform.tfvars | python -c 'import sys,json;print(json.load(sys.stdin)[sys.argv[1]])' aws_s3_world_backup)
+	cd spigot-bin && aws s3 sync . s3://$(shell cat core/terraform.tfvars.json | python -c 'import sys,json;print(json.load(sys.stdin)[sys.argv[1]])' aws_s3_world_backup)
 
 lambda: core/lambda_status.zip
 
@@ -30,7 +30,7 @@ core/lambda_status.zip: core/lambda_status/lambda_status.py core/lambda_status/r
 update: lambda
 	cd core && terraform apply
 	cd core && terraform output -json > ../instance/terraform.tfvars.json
-	cd instance && aws s3 sync --delete . s3://$(shell cat core/terraform.tfvars | awk -vFS='=' '/aws_s3_terraform_plan/{gsub(/[" ]/,"");print $$2}')
+	cd instance && aws s3 sync --delete . s3://$(shell cat core/terraform.tfvars.json | python -c 'import sys,json;print(json.load(sys.stdin)[sys.argv[1]])' aws_s3_terraform_plan)
 
 plan: lambda
 	cd core && terraform plan

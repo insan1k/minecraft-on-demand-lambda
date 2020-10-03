@@ -188,10 +188,10 @@ resource "aws_instance" "minecraft" {
   user_data = data.template_file.provision_minecraft.rendered
 }
 
-#resource "aws_eip_association" "eip_association" {
-#  allocation_id = var.aws_eip_id["value"]
-#  instance_id   = aws_instance.minecraft.id
-#}
+resource "aws_eip_association" "eip_association" {
+  allocation_id = var.aws_eip_id["value"]
+  instance_id   = aws_instance.minecraft.id
+}
 
 output "instance_ip" {
   value = aws_instance.minecraft.public_ip
