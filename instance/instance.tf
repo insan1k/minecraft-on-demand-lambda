@@ -1,9 +1,9 @@
 terraform {
   backend "s3" {
     # bucket = var.aws_s3_terraform_state["value"]
-    bucket         = "d10n-minecraft-terraform-state"    # terraform.backend: configuration cannot contain interpolations
+    bucket         = "dtfh-minecraft-terraform-state"    # terraform.backend: configuration cannot contain interpolations
     key            = "terraform.tfstate"
-    dynamodb_table = "d10n-minecraft-terraform-dynamodb"
+    dynamodb_table = "dtfh-minecraft-terraform-dynamodb"
 
     # region = data.aws_region.current.name
     region = "us-east-1"

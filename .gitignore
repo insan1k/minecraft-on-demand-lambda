@@ -2,6 +2,7 @@
 /core/minecraft/
 /core/lambda_destroy_deploy.zip
 /core/lambda_status.zip
+/core/terraform.tfvars
 /core/terraform.tfstate
 /core/terraform.tfstate.backup
 /instance/terraform.tfvars
