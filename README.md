@@ -16,7 +16,7 @@ Forked from [aqemery/Terraform-deploy-minecraft](https://github.com/aqemery/Terr
 
 Requirements:
 
- * Terraform
+ * Terraform v0.12
  * JDK 1.8 (if you want spigot)
  * An ssh key pair to SSH into the running Minecraft server:
 
